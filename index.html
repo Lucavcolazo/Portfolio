@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luca V Colazo</title>
+    <link rel="icon" type="image/png" href="l.png" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="background-image"></div>
+
+    <div class="top-left">
+        <a class="more-link" href="more.html">Mas info</a>
+    </div>
+
+    <div class="top-right">
+        <a class="contact-btn" href="contact.html">Contactame</a>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1>
+                <span>L</span><span>U</span><span>C</span><span>A</span>
+                <span>&nbsp;</span><span>V</span><span>.</span>
+                <span>&nbsp;</span><span>C</span><span>O</span><span>L</span><span>A</span><span>Z</span><span>O</span>
+            </h1>
+            <p>estudiante de ingenieria en sistemas y developer</p>
+        </div>
+
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/luca-valentino-colazo-605564274/" target="_blank">
+                <img src="linkedin.png" alt="LinkedIn" class="social-img">
+            </a> <a href="https://github.com/Lucavcolazo" target="_blank">
+                <img src="github.png" alt="GitHub" class="social-img">
+            </a>
+        </div>
+    </div>
+    
+    <div class="theme-toggle">
+      <button id="themeButton">🌙</button>
+    </div>
+    <script>
+      const themeButton = document.getElementById('themeButton');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      function setTheme(mode) {
+        document.body.setAttribute('data-theme', mode);
+        localStorage.setItem('theme', mode);
+        themeButton.textContent = mode === 'dark' ? '🌙' : '☀️';
+      }
+
+      const savedTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
+      setTheme(savedTheme);
+
+      themeButton.addEventListener('click', () => {
+        const current = document.body.getAttribute('data-theme');
+        setTheme(current === 'dark' ? 'light' : 'dark');
+      });
+    </script>
+</body>
+
+</html>

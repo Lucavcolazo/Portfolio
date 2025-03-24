@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mas sobre Luca</title>
+    <link rel="icon" type="image/png" href="l.png" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="background-image"></div>
+    <div class="top-left">
+        <a class="more-link" href="index.html">volver</a>
+    </div>
+    <div class="container">
+        <div class="content">
+            <h2>Quien soy? 👨‍💻</h2>
+            <p>Soy un estudiante de ingenieria en sistemas de argentina, me gusta la tecnologia, el desarrollo de apps y
+                paginas web </p>
+
+            <h2 style="margin-top: 40px;">Mi camino como ingeniero 🏎️ </h2>
+            <ul class="timeline">
+                <li>
+                    <span class="year">2023 - 2024</span>
+                    <div class="description">Curso la carrera de ingeniero en sistemas en la cual hicimos proyectos
+                        relacionados con programación, exploramos tecnologías como Assembly, Js, HTML, CSS, C#,
+                        TypeScript.
+                    </div>
+                </li>
+
+                <li>
+                    <span class="year">2025</span>
+                    <div class="description">Estamos trabajando en un proyecto con cliente para hacer prácticas
+                        profesionales.</div>
+                </li>
+
+                <li>
+                    <span class="year">Ahora mismo</span>
+                    <div class="description">
+                <li>- Practico con proyectos para mejorar. </li>
+                <li>- Estoy aprendiendo sobre front-end y back-end. </li>
+                <li>- Practico figma en mis tiempo libres.</li>
+        </div>
+        </li>
+        </ul>
+    </div>
+    </div>
+    <div class="theme-toggle">
+      <button id="themeButton">🌙</button>
+    </div>
+    <script>
+      const themeButton = document.getElementById('themeButton');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      function setTheme(mode) {
+        document.body.setAttribute('data-theme', mode);
+        localStorage.setItem('theme', mode);
+        themeButton.textContent = mode === 'dark' ? '🌙' : '☀️';
+      }
+
+      const savedTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
+      setTheme(savedTheme);
+
+      themeButton.addEventListener('click', () => {
+        const current = document.body.getAttribute('data-theme');
+        setTheme(current === 'dark' ? 'light' : 'dark');
+      });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto</title>
+    <link rel="icon" type="image/png" href="l.png" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="background-image"></div>
+
+    <div class="top-left">
+        <a class="more-link" href="index.html">volver</a>
+    </div>
+
+    <div class="contact-container">
+        <h2>Enviame un mensaje!</h2>
+
+        <form action="https://submit-form.com/wEplkoAfI" method="POST">
+            <label for="message">Mensaje</label>
+            <textarea id="message" placeholder="Me encanta esta pagina!"></textarea>
+
+            <label for="email">Tu email</label>
+            <input type="email" id="email" placeholder="johndoe@helloworld.com" />
+
+            <button type="submit" class="contact-btn">Enviar</button>
+        </form>
+    </div>
+
+    <div class="theme-toggle">
+      <button id="themeButton">🌙</button>
+    </div>
+    <script>
+      const themeButton = document.getElementById('themeButton');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      function setTheme(mode) {
+        document.body.setAttribute('data-theme', mode);
+        localStorage.setItem('theme', mode);
+        themeButton.textContent = mode === 'dark' ? '🌙' : '☀️';
+      }
+
+      const savedTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
+      setTheme(savedTheme);
+
+      themeButton.addEventListener('click', () => {
+        const current = document.body.getAttribute('data-theme');
+        setTheme(current === 'dark' ? 'light' : 'dark');
+      });
+    </script>
+</body>
+
+</html>
