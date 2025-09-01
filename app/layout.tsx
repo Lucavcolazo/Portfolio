@@ -1,20 +1,16 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Portfolio of Luca",
+  title: "Luca Colazo - Portfolio | Estudiante y Geek de la Tecnología",
+  description: "Portfolio de Luca Colazo, estudiante y apasionado de la tecnología, desarrollando experiencias digitales únicas con las últimas tecnologías web.",
+  keywords: ["estudiante", "tecnología", "portfolio", "web", "react", "next.js"],
+  authors: [{ name: "Luca Colazo" }],
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -23,10 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="es">
+      <body className="antialiased bg-black text-white overflow-x-hidden">
         {children}
       </body>
     </html>

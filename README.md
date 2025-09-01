@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Portfolio de Luca
 
-## Getting Started
+Un portfolio moderno y interactivo construido con las últimas tecnologías web, demostrando el poder de WebGL, animaciones fluidas y diseño minimalista.
 
-First, run the development server:
+## ✨ Características
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Fondo WebGL**: Partículas 3D interactivas que crean un ambiente inmersivo
+- **Animaciones fluidas**: Transiciones suaves y efectos de entrada con Framer Motion
+- **Diseño minimalista**: Paleta en blanco y negro con tipografía elegante
+- **Responsive**: Optimizado para todos los dispositivos
+- **Performance**: Optimizado con Next.js 15 y Tailwind CSS 4
+
+## 🛠️ Tecnologías Utilizadas
+
+- **Next.js 15** - Framework React con SSR/SSG
+- **Tailwind CSS 4** - Framework CSS utility-first
+- **Three.js + React Three Fiber** - Gráficos 3D en el navegador
+- **Framer Motion** - Animaciones fluidas en React
+- **TypeScript** - Tipado estático para mayor robustez
+
+## 🚀 Instalación
+
+1. **Clona el repositorio**
+   ```bash
+   git clone <tu-repositorio>
+   cd portfolio
+   ```
+
+2. **Instala las dependencias**
+   ```bash
+   npm install
+   ```
+
+3. **Instala las dependencias adicionales**
+   ```bash
+   npm install framer-motion
+   ```
+
+4. **Ejecuta el servidor de desarrollo**
+   ```bash
+   npm run dev
+   ```
+
+5. **Abre [http://localhost:3000](http://localhost:3000) en tu navegador**
+
+## 📁 Estructura del Proyecto
+
+```
+app/
+├── components/          # Componentes reutilizables
+│   ├── Hero.tsx        # Sección principal con tu nombre
+│   ├── ParticleBackground.tsx  # Fondo de partículas 3D
+│   └── WebGLBackground.tsx     # Canvas WebGL principal
+├── globals.css         # Estilos globales
+├── layout.tsx          # Layout principal de la aplicación
+└── page.tsx            # Página de inicio
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Personalización
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Cambiar el nombre
+Edita `app/components/Hero.tsx` y cambia "Luca" por tu nombre.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Modificar colores
+Los colores principales están definidos en `app/globals.css` en las variables CSS.
 
-## Learn More
+### Ajustar partículas
+Modifica `app/components/ParticleBackground.tsx` para cambiar el comportamiento de las partículas.
 
-To learn more about Next.js, take a look at the following resources:
+## 🔧 Scripts Disponibles
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `npm run dev` - Servidor de desarrollo
+- `npm run build` - Construir para producción
+- `npm run start` - Servidor de producción
+- `npm run lint` - Verificar código con ESLint
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📱 Responsive Design
 
-## Deploy on Vercel
+El portfolio está optimizado para:
+- 📱 Móviles (320px+)
+- 📱 Tablets (768px+)
+- 💻 Desktop (1024px+)
+- 🖥️ Pantallas grandes (1440px+)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚀 Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Vercel (Recomendado)
+1. Conecta tu repositorio de GitHub
+2. Vercel detectará automáticamente que es un proyecto Next.js
+3. Deploy automático en cada push
+
+### Otros servicios
+- **Netlify**: Compatible con Next.js
+- **Railway**: Deploy rápido y escalable
+- **DigitalOcean App Platform**: Para proyectos más complejos
+
+## 🤝 Contribuciones
+
+Las contribuciones son bienvenidas. Por favor:
+1. Fork el proyecto
+2. Crea una rama para tu feature
+3. Commit tus cambios
+4. Push a la rama
+5. Abre un Pull Request
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.
+
+## 📞 Contacto
+
+- **Luca** - [tu-email@ejemplo.com]
+- **GitHub**: [@tu-usuario]
+- **LinkedIn**: [tu-perfil]
+
+---
+
+⭐ Si te gusta este portfolio, dale una estrella en GitHub!
