@@ -26,8 +26,8 @@ export default function Technologies() {
     <div className="section" data-anchor="technologies">
       <div className="min-h-screen flex flex-col relative z-10 px-4">
         
-        {/* Título centrado arriba con divs - Movido un poco más abajo */}
-        <div className="flex justify-center items-center pt-32 pb-20">
+        {/* Título centrado arriba con divs - Más padding desde el techo */}
+        <div className="flex justify-center items-center pt-40 pb-20">
           <div className="text-center">
             <motion.h2 
               className="text-5xl md:text-7xl font-bold text-white tracking-tight"
