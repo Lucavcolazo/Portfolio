@@ -1,7 +1,7 @@
 'use client'
 
 import { ReactNode, useState, useEffect, useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 interface FullPageWrapperProps {
   children: ReactNode
@@ -10,45 +10,16 @@ interface FullPageWrapperProps {
 export default function FullPageWrapper({ children }: FullPageWrapperProps) {
   const [currentSection, setCurrentSection] = useState(0)
   const containerRef = useRef<HTMLDivElement>(null)
-  const isScrolling = useRef(false)
-  const lastScrollTop = useRef(0)
 
-  // Función para ir a una sección específica
-  const goToSection = (sectionIndex: number) => {
-    if (isScrolling.current) return
-    
-    const sections = containerRef.current?.querySelectorAll('.section')
-    if (!sections || !sections[sectionIndex]) return
-    
-    isScrolling.current = true
-    setCurrentSection(sectionIndex)
-    
-    const targetSection = sections[sectionIndex] as HTMLElement
-    const targetPosition = targetSection.offsetTop
-    
-    window.scrollTo({
-      top: targetPosition,
-      behavior: 'smooth'
-    })
-    
-    // Permitir scroll después de la animación
-    setTimeout(() => {
-      isScrolling.current = false
-    }, 1000)
-  }
-
-  // Detectar scroll y navegar entre secciones
+  // Detectar scroll y actualizar sección actual
   useEffect(() => {
     const handleScroll = () => {
-      if (isScrolling.current) return
-      
       const container = containerRef.current
       if (!container) return
       
       const sections = container.querySelectorAll('.section')
       const scrollTop = window.pageYOffset
       const windowHeight = window.innerHeight
-      const scrollDirection = scrollTop > lastScrollTop.current ? 'down' : 'up'
       
       // Detectar sección actual
       let activeSection = 0
@@ -67,27 +38,6 @@ export default function FullPageWrapper({ children }: FullPageWrapperProps) {
       if (activeSection !== currentSection) {
         setCurrentSection(activeSection)
       }
-      
-      // Detectar si está cerca del borde de una sección para "magnetic scroll"
-      const currentSectionElement = sections[activeSection] as HTMLElement
-      if (currentSectionElement) {
-        const rect = currentSectionElement.getBoundingClientRect()
-        const sectionTop = rect.top + scrollTop
-        const sectionBottom = sectionTop + rect.height
-        
-        // Si está cerca del borde superior o inferior, ir a la siguiente/anterior sección
-        if (scrollDirection === 'down' && scrollTop + windowHeight > sectionBottom - 100) {
-          if (activeSection < sections.length - 1) {
-            goToSection(activeSection + 1)
-          }
-        } else if (scrollDirection === 'up' && scrollTop < sectionTop + 100) {
-          if (activeSection > 0) {
-            goToSection(activeSection - 1)
-          }
-        }
-      }
-      
-      lastScrollTop.current = scrollTop
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -96,18 +46,12 @@ export default function FullPageWrapper({ children }: FullPageWrapperProps) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [currentSection])
 
-  // Debug: mostrar la sección actual
-  useEffect(() => {
-    console.log('Sección actual:', currentSection)
-  }, [currentSection])
-
   return (
     <>
       {/* Fondo de partículas animado */}
       <div className="fixed inset-0 z-[-1] overflow-hidden">
         {/* Partículas flotantes */}
         {[...Array(80)].map((_, i) => (
-          
           <motion.div
             key={i}
             className="absolute w-1 h-1 bg-white/30 rounded-full"
@@ -143,13 +87,10 @@ export default function FullPageWrapper({ children }: FullPageWrapperProps) {
         />
       </div>
       
-      {/* Contenedor principal con scroll suave */}
+      {/* Contenedor principal con scroll-snap */}
       <div 
         ref={containerRef}
-        className="h-screen overflow-y-auto"
-        style={{
-          scrollBehavior: 'smooth'
-        }}
+        className="fullpage-wrapper"
       >
         {children}
       </div>

@@ -54,12 +54,16 @@ body {
   color: white;
 }
 
-/* Smooth scrolling */
+/* Smooth scrolling y scroll-snap */
 html {
   scroll-behavior: smooth;
 }
 
-/* Estilos para las secciones - Sin scroll-snap brusco */
+body {
+  overflow-x: hidden;
+}
+
+/* Estilos para las secciones con scroll-snap */
 .section {
   min-height: 100vh;
   width: 100%;
@@ -69,12 +73,22 @@ html {
   align-items: center;
   position: relative;
   padding: 2rem 0;
+  scroll-snap-align: start;
 }
 
-/* Contenedor principal con scroll suave */
+/* Contenedor principal con scroll-snap */
 .scroll-container {
   height: 100vh;
   overflow-y: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+/* Contenedor principal con scroll-snap para el wrapper */
+.fullpage-wrapper {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
 
@@ -119,9 +133,25 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Mejoras para el scroll suave */
+/* Mejoras para el scroll suave y scroll-snap */
 .smooth-scroll {
   scroll-behavior: smooth;
+}
+
+/* Transiciones suaves entre secciones */
+.section {
+  transition: opacity 0.3s ease;
+}
+
+/* Mejorar la experiencia del scroll-snap */
+.fullpage-wrapper {
+  -webkit-overflow-scrolling: touch; /* Para iOS */
+  scrollbar-width: none; /* Para Firefox */
+  -ms-overflow-style: none; /* Para IE/Edge */
+}
+
+.fullpage-wrapper::-webkit-scrollbar {
+  display: none; /* Para Chrome/Safari */
 }
 
 /* Estilos específicos para las barras de tecnologías */

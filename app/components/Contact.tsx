@@ -6,13 +6,13 @@ export default function Contact() {
   const socialLinks = [
     {
       name: 'LinkedIn',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg',
+      iconClass: 'devicon-linkedin-plain',
       url: 'https://www.linkedin.com/in/luca-valentino-colazo-21782637a/', 
       color: 'hover:text-blue-500'
     },
     {
       name: 'GitHub',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg',
+      iconClass: 'devicon-github-plain',
       url: 'https://github.com/Lucavcolazo',
       color: 'hover:text-gray-300'
     }
@@ -94,11 +94,17 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="block p-4 rounded-2xl transition-all duration-300 hover:bg-white/10"
               >
-                <img 
-                  src={social.icon} 
-                  alt={social.name}
-                  className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 filter drop-shadow(0 0 20px rgba(255, 255, 255, 0.3))"
-                />
+                                 <i 
+                   className={`${social.iconClass} filter drop-shadow(0 0 20px rgba(255, 255, 255, 0.3)) text-white`}
+                   style={{ 
+                     fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+                     width: 'clamp(2.5rem, 5vw, 4rem)',
+                     height: 'clamp(2.5rem, 5vw, 4rem)',
+                     display: 'flex',
+                     alignItems: 'center',
+                     justifyContent: 'center'
+                   }}
+                 />
                 <div className="text-center mt-3">
                   <span className="text-base font-medium text-white transition-colors duration-300 group-hover:text-blue-300">
                     {social.name}
